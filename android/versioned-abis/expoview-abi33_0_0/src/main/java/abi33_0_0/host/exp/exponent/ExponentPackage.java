@@ -43,6 +43,7 @@ import abi33_0_0.host.exp.exponent.modules.api.notifications.NotificationsModule
 import abi33_0_0.host.exp.exponent.modules.api.reanimated.ReanimatedModule;
 import abi33_0_0.host.exp.exponent.modules.api.screens.RNScreensPackage;
 import abi33_0_0.host.exp.exponent.modules.api.viewshot.RNViewShotModule;
+import abi33_0_0.host.exp.exponent.modules.internal.DevMenuModule;
 import abi33_0_0.host.exp.exponent.modules.internal.ExponentAsyncStorageModule;
 import abi33_0_0.host.exp.exponent.modules.internal.ExponentIntentModule;
 import abi33_0_0.host.exp.exponent.modules.internal.ExponentUnsignedAsyncStorageModule;
@@ -154,6 +155,10 @@ public class ExponentPackage implements ReactPackage {
 //      // Never need this in versioned code. Comment this out if this is in an abi package
 //      nativeModules.add((NativeModule) ExponentKernelModuleProvider.newInstance(reactContext));
 //    }
+    if (!mIsKernel) {
+      // We need DevMenuModule only in non-kernel apps.
+      nativeModules.add(new DevMenuModule(reactContext, mExperienceProperties, mManifest));
+    }
 
     if (isVerified) {
       try {

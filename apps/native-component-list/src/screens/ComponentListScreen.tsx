@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  FlatList,
-  PixelRatio,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View,
-  ListRenderItem,
-} from 'react-native';
+import { FlatList, PixelRatio, StyleSheet, Text, View, ListRenderItem } from 'react-native';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 import { withNavigation, NavigationScreenProps } from 'react-navigation';
 
 import { EvilIcons } from '@expo/vector-icons';
